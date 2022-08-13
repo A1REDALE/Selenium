@@ -1,9 +1,7 @@
-package PageObjects;
-
+package pageobjects;
 import org.openqa.selenium.By;
 
 public class Locators {
-
     //Лого Яндекс в верхнем левом углу страницы
     private final By YaLogo = By.className("Header_LogoYandex__3TSOI");
     //Лого "Самокат" в верхнем левом углу страницы
@@ -54,11 +52,4 @@ public class Locators {
     private final By yesButton = By.xpath("//*[@id='root']/div/div[2]/div[5]/div[2]/button[2]");
     //Всплывающее окно с информацией о заказе
     private final By orderConfirmation = By.xpath("//div[@class='Order_ModalHeader__3FDaJ']");
-
-
-
-
-
-
-
 }

@@ -1,4 +1,4 @@
-import PageObjects.OrderScooter;
+import pageobjects.OrderScooter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,10 +10,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertTrue;
 
-
 @RunWith(Parameterized.class)
     public class DownOrderButtonTest {
-
         WebDriver driver;
         String firstName;
         String secondName;
@@ -21,8 +19,6 @@ import static org.junit.Assert.assertTrue;
         String metroStation;
         String phoneNumber;
         String orderDate;
-
-
         public DownOrderButtonTest(String firstName, String secondName, String address, String metroStation,
                     String phoneNumber, String orderDate) {
                 this.firstName = firstName;
@@ -31,18 +27,13 @@ import static org.junit.Assert.assertTrue;
                 this.metroStation = metroStation;
                 this.phoneNumber = phoneNumber;
                 this.orderDate = orderDate;
-
         }
-
-        @Parameterized.Parameters
+        @Parameterized.Parameters(name = "Тестовые данные: {1} {2} {3} {4} {5} {6}")
         public static Object[][] getTestData() {
             return new Object[][]{
                     {"Уасся", "упыпыупжызпхыпхыдуьшыоаыалызщалыщзщлаыйцвйцвйвйвйвйвйвйвйвйвеоегнлгндзалызалзыалзыалза",
                             "Комсомольский,18", "Черкизовская", "+792153490812", "08.07.2022"}
-
             };
-
-
         }
     @Before
     public void setUp() {
@@ -51,12 +42,9 @@ import static org.junit.Assert.assertTrue;
         driver.manage().window().maximize();
         driver.get("https://qa-scooter.praktikum-services.ru/");
         driver.findElement(By.id("rcc-confirm-button")).click();
-
     }
-
         @Test
         public void orderWithNotCorrectValuesSuccess() {
-
             OrderScooter orderScooter = new OrderScooter(driver);
             orderScooter.
                     clickDownOrderButton()
@@ -68,7 +56,6 @@ import static org.junit.Assert.assertTrue;
                     .clickYesButton();
             boolean result = orderScooter.isConfirmationDisplayed();
             assertTrue(result);
-
         }
         @After
         public void Teardown() {
